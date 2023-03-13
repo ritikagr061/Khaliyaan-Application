@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Khaliyaan-Marketplace</title>
+    <link rel="shortcut icon" href="/favicon/favicon.png" type="image/x-icon" />
+    <!-- <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <script
+      defer
+      src="https://kit.fontawesome.com/95f68113d2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <img src="/favicon/favicon.png" alt="logo" style="width:40px; height:40px"/>
+          Khaliyaan-Marketplace
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/products"
+                >Home <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/products/category/all"
+                >Products <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <!-- <% //if(currentUser && currentUser.username=='admin') { %> -->
+            <li class="nav-item active">
+              <a class="nav-link" href="/products/new"
+                >Add Product<span class="sr-only">(current)</span></a
+              >
+            </li>
+            <!-- <% //} %> -->
+            <li class="nav-item active">
+              <input type="search" class="nav-searchbar" placeholder="Search products" />
+              <span class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+            </li>
+          </ul>
+          <ul class="navbar-nav navbar-right">
+            
+            <% if(!currentUser) { %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/register"
+                >Sign Up <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/login"
+                >Login <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <% } else { %>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                style="color: white"
+              >
+                Welcome <%= currentUser.username %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/orders">My Orders</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+              </div>
+            </li>
+            <% } %>
+            <li class="nav-item active">
+              <a class="nav-link cart-logo" href="/cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Cart<span class="sr-only">(current)</span>
+                <% if(currentUser) { %>
+                <span id="cart-count"><%= currentUser.cart.items.length %> </span>
+                <% } %>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if(success && success.length>0) { %>
+      <div class="alert alert-success mt-3"><%= success %></div>
+      <% } %> <% if(error && error.length>0) { %>
+      <div class="alert alert-danger mt-3"><%= error %></div>
+      <% } %>
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>

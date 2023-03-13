@@ -1,0 +1,52 @@
+<%- include("../partials/header") %>
+
+<div class="container ord-ind-div">
+	<% orders.forEach(function(order) { %>
+		<a href="/orders/<%= order._id %>" class="a-order">
+			<div class="border px-2 px-md-3 pt-3 pb-2 my-4">
+				<h6 class="float-right ml-2"><%= order.date.toDateString() %></h6>
+				<h6>Order No - <%= order.no %></h6>
+				<hr>
+				<div class="row">
+					<div class="col-3">
+						<div class="resp-img order" style="background-image:url('<%= order.checkoutCart.items[0].product.image %>')"></div>
+					</div>
+					<div class="col-9">
+						<div class="mb-2">
+							<%= order.checkoutCart.items[0].product.name.substring(0,50) %><% if(order.checkoutCart.items[0].product.name.length>50) { %>&nbsp...<% } %>
+						</div>
+
+						<h6>
+							<span class="mr-1">₹<%= order.checkoutCart.items[0].product.price %></span>
+							<span class="nowrap">
+								<span class="mrp mr-1">₹<%= order.checkoutCart.items[0].product.mrp %></span>
+								<span class="disc"><%= order.checkoutCart.items[0].product.disc_perc %>% off</span>
+							</span>
+							<div class="disc nowrap">You Saved ₹<%= order.checkoutCart.items[0].product.discount %></div>
+						</h6>
+
+						<div class="nowrap">Quantity - <%= order.checkoutCart.items[0].qty %></div>
+					</div>
+				</div> 
+				
+				<% if(order.checkoutCart.items.length>1){ %>
+					<hr>
+					<div class="float-right">+ <%= order.checkoutCart.items.length-1 %> more product(s)</div><br>
+				<% } %>
+				<hr>
+				<h6 class="float-right">₹<%= order.checkoutCart.total %></h6>
+				<h6>Total Payable</h6>
+			</div>
+		</a>
+	<% }); %>
+
+	<% if(orders.length==0){ %>
+		<div class="text-center screen-center-cart">
+			<img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" class="empty-cart-img">
+			<h5>You haven't placed any orders yet!!</h5>
+			<a href="/products" class="btn btn-success">Start Shopping</a>
+		</div>
+	<% } %>		
+</div>
+
+<%- include("../partials/footer") %>

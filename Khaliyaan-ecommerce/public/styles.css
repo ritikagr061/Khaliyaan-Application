@@ -1,0 +1,172 @@
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.login-register, .product-form, .review-form, .checkout-form, .cart-show {
+ 	width: 100%; 
+ 	margin: 25px auto;
+}
+
+.login-register {
+	max-width: 300px;
+}
+
+.product-form, .review-form, .cart-show {
+ 	max-width: 500px; 
+}
+
+.checkout-form {
+ 	max-width: 800px; 
+}
+
+.resp-img {
+ 	width: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.pro-ind {
+ 	height: 225px;
+}
+
+.pro-show {
+ 	height: 350px;
+}
+
+.cart, .order {
+ 	height: 100px;
+}
+
+.a, .a-order, .a-order:hover {
+ 	color: black;
+}
+
+.a:hover {
+	color: #007bff;
+}
+
+a:hover {
+	text-decoration: none !important;
+}
+
+.opac {
+	opacity: 0.8;
+}
+
+.screen-center-conf {
+	position: absolute; 
+	top: 50%; 
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -185px;
+}
+
+.screen-center-cart {
+	position: absolute; 
+	top: 50%; 
+	left: 50%;
+	margin-top: -110px;
+	margin-left: -150px;
+
+}
+
+.empty-cart-img {
+	width: 200px; 
+	height: 150px;
+}
+
+.ord-ind-div {
+	width: 100%; 
+	max-width: 550px; 
+	margin: auto;
+}
+
+.ord-show-div {
+	width: 100%; 
+	max-width: 1000px; 
+	margin: auto;
+}
+
+.white {
+	color: white;
+}
+
+.mrp {
+	text-decoration: line-through;
+	opacity: 0.8;
+	font-size: 0.8em;
+}
+
+.disc {
+	color: green;
+	font-size: 0.8em;
+}
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
+  color: #007bff;
+}
+
+.dropdown-item:active{
+	color: #007bff;
+	background-color: #e4e4e4;
+}
+
+.navbar{
+	background-color: #2874f0;
+	color: #fff;
+}
+
+.navbar a{
+	color: #fff;
+}
+
+.nav-searchbar{
+	height: 100%;
+	border: none;
+	outline: none;
+	padding: .5rem 1rem;
+	padding-right: 3rem;
+	border-radius: 2px;
+	box-shadow: 0 2px 2px #091832a5;
+}
+
+.search-icon{
+	margin-left: -2rem;
+	margin-right: 2rem;
+	color: #2874f0;
+}
+
+.cart-logo{
+	position: relative;
+	padding-right: 1rem !important;
+}
+
+#cart-count{
+	color: #ffffff;
+	padding: 0 6px;
+	border-radius: 50%;
+	background-color: #f03c28;
+	font-size: .75rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.category-container{
+	border: 5px solid #f1c90d;
+	color: #2874f0;
+	background-image: linear-gradient(#e9dfb6,#fff,#e9dfb6);
+	padding: 5rem 0;
+}
+
+.category-container span{
+	text-transform: capitalize;
+	font-size: 2rem;
+	font-weight: 500;
+}

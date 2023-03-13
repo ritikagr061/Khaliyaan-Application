@@ -1,0 +1,70 @@
+<%- include("../partials/header") %>
+
+<div class="container cart-show">
+	<div class="border px-2 px-lg-3 pt-0">
+		<% user.cart.items.forEach(function(cartItem){ %>
+			<div class="mb-3">	
+				<hr class="mt-0">
+				<div class="row">
+					<div class="col-3">
+						 <a href="/products/<%= cartItem.product._id %>">
+						 	<div class="resp-img cart" style="background-image:url('<%= cartItem.product.image %>')"></div>
+						 </a>
+					</div>
+					<div class="col-9">
+						<a href="/products/<%= cartItem.product._id %>">
+							<div class="a mb-2">
+								<%= cartItem.product.name.substring(0,50) %><% if(cartItem.product.name.length>50) { %>&nbsp...<% } %>
+							</div>
+						</a>
+
+						<h6>
+							<span class="mr-1">₹<%= cartItem.product.price %></span>
+							<span class="nowrap">
+								<span class="mrp mr-1">₹<%= cartItem.product.mrp %></span>
+								<span class="disc"><%= cartItem.product.disc_perc %>% off</span>
+							</span>
+							<div class="disc nowrap">You Save ₹<%= cartItem.product.discount %></div>
+						</h6>
+
+						<div class="float-right ml-2">
+							<a href="/cart/<%= cartItem.product._id %>/rem">Remove</a> 
+						</div>
+
+						<div>
+							Quantity 
+							<span class="nowrap">
+								<a href="/cart/<%= cartItem.product._id %>/dec">
+									<i class="fas fa-minus-circle"></i>
+								</a> 
+								<%= cartItem.qty %> 
+								<a href="/cart/<%= cartItem.product._id %>/inc">
+									<i class="fas fa-plus-circle"></i>
+								</a>
+							</span>
+						</div>
+					</div>
+				</div> 
+			</div>
+		<% }); %>
+	</div>
+	<% if(user.cart.items.length>0){ %>
+		<div class="border pt-3 pb-2 px-3 my-4">
+			<h6 class="float-right">₹<%=user.cart.cart_total%></h6>
+			<h6>Cart Total</h6>
+			<h6 class="float-right disc">(-)₹<%=user.cart.discount%></h6>
+			<h6 class="disc">Discount</h6>
+			<h6 class="float-right">₹<%=user.cart.total%></h6>
+			<h6>Total Payable</h6>
+		</div>
+		<a href="/checkout" class="btn btn-success float-right mb-5">Proceed to Checkout</a>
+	<% } else { %>		
+		<div class="text-center screen-center-cart">
+			<img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" class="empty-cart-img">
+			<h5>You have nothing in your cart!!</h5>
+			<a href="/products" class="btn btn-success">Start Shopping</a>
+		</div>
+	<% } %>
+</div>
+
+<%- include("../partials/footer") %>

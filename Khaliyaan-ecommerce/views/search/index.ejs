@@ -1,0 +1,41 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <div class="row">
+        <% products.forEach(product => { %>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="card my-3 p-0">
+                    <a href="/products/<%= product._id %>">
+                        <div class="resp-img pro-ind my-2" style="background-image:url('<%= product.image %>')"></div>
+                    </a>
+                    <div class="card-body p-2 p-lg-3">
+                        <a href="/products/<%= product._id %>">
+                            <div class="card-title a"><%= product.name.substring(0,50) %><% if(product.name.length>50) { %>&nbsp...<% } %></div>
+                        </a>
+                        
+                        <h6>
+                            <span class="mr-1">₹<%= product.price %></span>
+                            <span class="nowrap">
+                                <span class="mrp mr-1">₹<%= product.mrp %></span>
+                                <span class="disc"><%= product.disc_perc %>% off</span>
+                            </span>
+                        </h6>
+
+                        <h6>
+                            <% if(currentUser && currentUser.cart.items.some(function(cartItem){ 
+                                return cartItem.product._id.equals(product._id); 
+                            })) { %>
+                                        <a href="/cart"><button class="btn btn-sm btn-primary mr-md-1">Go to cart</button></a>
+                            <% } else { %>
+                                        <a href="/cart/new/<%= product._id %>/index"><button class="btn btn-sm btn-primary mr-md-1">Add to cart</button></a>
+                            <% } %>
+                            <span class="nowrap disc">Save ₹<%= product.discount %></span>
+                        </h6>						
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include("../partials/footer") %>

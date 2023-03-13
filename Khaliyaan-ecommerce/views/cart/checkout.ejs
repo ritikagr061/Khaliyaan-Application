@@ -1,0 +1,49 @@
+<%- include("../partials/header") %>
+
+<div class="container checkout-form">
+	<h4 class="mb-3">Fill up the shipping details</h4>
+	<form action="/checkout" method="POST">
+		<div class="row my-md-2">
+			<div class="col-md-7 my-1 my-md-0 pr-md-1">
+				<input type="text" name="name" placeholder="Full Name" class="form-control" required>
+			</div>
+			<div class="col-md-5 my-1 my-md-0 pl-md-1">
+				<input type="number" name="contactNo" placeholder="Mobile No" class="form-control" required>
+			</div>
+		</div>
+		<div class="row my-md-2">
+			<div class="col my-1 my-md-0">
+				<input type="text" name="address[addr]" placeholder="Street/Area/Locality" class="form-control" required>
+			</div>
+		</div>
+		<div class="row my-md-2">
+			<div class="col-md-4 my-1 my-md-0 pr-md-1">
+				<input type="text" name="address[city]" placeholder="City" class="form-control" required>
+			</div>
+			<div class="col-md-4 my-1 my-md-0 px-md-1">
+				<input type="text" name="address[state]" placeholder="State" class="form-control" required>
+			</div>
+			<div class="col-md-4 my-1 my-md-0 pl-md-1">
+				<input type="number" name="address[pin]" placeholder="Pin Code" class="form-control" required>
+			</div>
+		</div>
+		<div class="row my-3">
+			<div class="col-md-5 mb-3">
+				<h6>Payment Method: COD</h6>
+			</div>
+			<div class="col-md-7 ">
+				<div class="border pt-3 pb-2 px-3">
+					<h6 class="float-right">₹<%=user.cart.cart_total%></h6>
+					<h6>Cart Total</h6>
+					<h6 class="float-right disc">(-)₹<%=user.cart.discount%></h6>
+					<h6 class="disc">Discount</h6>
+					<h6 class="float-right">₹<%=user.cart.total%></h6>
+					<h6>Total Payable</h6>
+				</div>
+			</div>
+		</div>
+		<button class="btn btn-success float-right">Place Order</button>
+	</form>
+</div>
+
+<%- include("../partials/footer") %>

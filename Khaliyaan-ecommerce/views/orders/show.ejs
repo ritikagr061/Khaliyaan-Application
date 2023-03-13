@@ -1,0 +1,57 @@
+<%- include("../partials/header") %>
+
+<div class="container ord-show-div">
+	<div class="row">
+		<div class="col-md-7">
+			<div class="border my-4 px-2 px-md-3 py-3">
+				<h6 class="float-right"><%= order.date.toDateString() %></h6>
+				<h6>Order No - <%= order.no %></h6>
+				<% order.checkoutCart.items.forEach(function(cartItem){ %>
+					<hr>
+					<div class="row">
+						<div class="col-3">
+							<a href="/products/<%= cartItem.product.id %>">
+								<div class="resp-img order" style="background-image:url('<%= cartItem.product.image %>')"></div>
+							</a>
+						</div>
+						<div class="col-9">
+							<a href="/products/<%= cartItem.product.id %>">
+								<div class="a mb-2"><%= cartItem.product.name %></div>
+							</a>
+							<h6>
+								<span class="mr-1">₹<%= cartItem.product.price %></span>
+								<span class="nowrap">
+									<span class="mrp mr-1">₹<%= cartItem.product.mrp %></span>
+									<span class="disc"><%= cartItem.product.disc_perc %>% off</span>
+								</span>
+								<div class="disc nowrap">You Saved ₹<%= cartItem.product.discount %></div>
+							</h6>
+							<div class="nowrap">Quantity - <%= cartItem.qty %></div>
+						</div>
+					</div> 
+				<% }); %>
+			</div>
+		</div>
+		<div class="col-md-5">
+			<div class="border mb-4 mt-md-4 px-2 px-md-3 pt-3 pb-2">
+				<h5>Shipping Details</h5>
+				<hr>
+				<h6><%= order.name %></h6>
+				<div><%= order.address.addr %></div>
+				<div><%= order.address.city %>, <%= order.address.state %></div>
+				<div><%= order.address.pin %></div>
+				<div>Phone Number: <%= order.contactNo %></div>
+				<hr>
+				<h6 class="float-right">₹<%=order.checkoutCart.cart_total%></h6>
+				<h6>Order Total</h6>
+				<h6 class="float-right disc">(-)₹<%=order.checkoutCart.discount%></h6>
+				<h6 class="disc">Discount</h6>
+				<h6 class="float-right">₹<%=order.checkoutCart.total%></h6>
+				<h6>Total Payable</h6>
+				<h6>Payment Method: <%= order.paymentMode %></h6>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

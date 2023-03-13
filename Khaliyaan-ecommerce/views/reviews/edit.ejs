@@ -1,0 +1,19 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<h2 class="text-center mt-3">Edit Review</h2>
+	<div class="review-form">
+		<form action="/products/<%= product._id %>/reviews/<%= review._id %>?_method=PUT" method="POST" autocomplete="off">
+			<div class="form-group">
+				<input type="text" name="review[title]" value="<%= review.title %>" class="form-control" required>
+			</div>
+			<div class="form-group">
+				<textarea name="review[text]" class="form-control" required> <%= review.text %> </textarea>
+			</div>
+			<button class="btn btn-primary btn-block">Edit Review</button>
+		</form>
+		<a href="/products/<%= product._id %>" class="text-center">Go Back</a>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>
