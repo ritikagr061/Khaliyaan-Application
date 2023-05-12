@@ -1,6 +1,6 @@
 # Khaliyaan-Application
 
-###What are we doing ?
+### What are we doing ?
 
 In khaliyaan with the help of different machine learning algorithms and Deep learning we have
 trained models that help farmers make an informed decision about which crops to be grown , what
@@ -15,7 +15,7 @@ yield.
   b) Propose a suitable solution.
   
   
-###Solution Approach
+### Solution Approach
 
 1) For the crop recommendation part, we will use the dataset available on Kaggle and compare
 different machine learning algorithms and choose the one which gives best accuracy. We will ask
@@ -33,7 +33,7 @@ ExpressJS and MongoDB.
 ![image](https://github.com/ritikagr061/Khaliyaan-Application/assets/54122273/675940f1-becd-435a-baf1-6c6e315955fe)
 
 
-####Ecommerce marketplace
+#### Ecommerce marketplace
 
 ![image](https://github.com/ritikagr061/Khaliyaan-Application/assets/54122273/edc1f0b9-7681-4edf-9e07-e6741ebe57ef)
 
