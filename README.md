@@ -6,6 +6,7 @@ In khaliyaan with the help of different machine learning algorithms and Deep lea
 trained models that help farmers make an informed decision about which crops to be grown , what
 fertilizer to be used and what pesticides to be used if any.
 
+### Why are we doing this(Relevance) ?
 Farmers face three major challenges:
 1) Crop Selection based on the soil quality, rainfall and location so as to maximize the output
 yield.
